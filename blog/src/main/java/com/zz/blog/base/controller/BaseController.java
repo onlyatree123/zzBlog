@@ -6,7 +6,7 @@ import com.zz.blog.base.constants.SysConstants;
 import com.zz.blog.base.rest.RestException;
 import com.zz.blog.base.util.JsonMapper;
 import com.zz.blog.base.util.PageInfo;
-import org.apache.shiro.SecurityUtils;
+
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.PageImpl;
 import org.springframework.data.domain.PageRequest;
@@ -76,45 +76,45 @@ public class BaseController {
 //    }
 //
 
-	/**
-	 * 判断当前用户是否有某些角色.
-	 * @param role
-	 * @return
-	 */
-	public static boolean hasRole(String role){
-		return SecurityUtils.getSubject().hasRole(role);
-	}
-
-	/**
-	 * 判断当前用户是否有某些角色.
-	 * @param roles
-	 * @return
-	 */
-	public static boolean hasRole(List<String> roles){
-		boolean[] result = SecurityUtils.getSubject().hasRoles(roles);
-		for(boolean role : result){
-			if(role){
-				return true;
-			}
-		}
-		return false;
-	}
-
-	public static boolean isAdmin(){
-		if(SecurityUtils.getSubject().hasRole(SysConstants.ADMINISTRATOR)){
-			return true;
-		}
-		return false;
-	}
-
-	/**
-	 * 判断当前用户是否有某些权限.
-	 * @param permission
-	 * @return
-	 */
-	public static boolean hasPermission(String permission){
-		return SecurityUtils.getSubject().isPermitted(permission);
-	}
+//	/**
+//	 * 判断当前用户是否有某些角色.
+//	 * @param role
+//	 * @return
+//	 */
+//	public static boolean hasRole(String role){
+//		return SecurityUtils.getSubject().hasRole(role);
+//	}
+//
+//	/**
+//	 * 判断当前用户是否有某些角色.
+//	 * @param roles
+//	 * @return
+//	 */
+//	public static boolean hasRole(List<String> roles){
+//		boolean[] result = SecurityUtils.getSubject().hasRoles(roles);
+//		for(boolean role : result){
+//			if(role){
+//				return true;
+//			}
+//		}
+//		return false;
+//	}
+//
+//	public static boolean isAdmin(){
+//		if(SecurityUtils.getSubject().hasRole(SysConstants.ADMINISTRATOR)){
+//			return true;
+//		}
+//		return false;
+//	}
+//
+//	/**
+//	 * 判断当前用户是否有某些权限.
+//	 * @param permission
+//	 * @return
+//	 */
+//	public static boolean hasPermission(String permission){
+//		return SecurityUtils.getSubject().isPermitted(permission);
+//	}
 
 //
 //	public static String getCurrentRole(){
@@ -164,7 +164,7 @@ public class BaseController {
 			ip = request.getHeader("WL-Proxy-Client-IP");
 //            System.out.println("---ip3="+ip);
 		}
-		
+
 		if (ip == null || ip.length() == 0 || "unknown".equalsIgnoreCase(ip)) {
 			ip = request.getHeader("X-Real-IP");
 //            System.out.println("---ip4="+ip);
@@ -178,7 +178,7 @@ public class BaseController {
 			ip = ip.substring(0,ip.indexOf(","));
 		}
 
-		
+
 		return ip;
 	}
 	public static String getClientHost(HttpServletRequest request){

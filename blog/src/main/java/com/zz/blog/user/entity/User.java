@@ -14,7 +14,7 @@ public class User extends IdEntity{
     private String salt;//盐
     private String password;//加密后的密码
     private String headImgUrl;
-    private String isLock;
+    private Integer isLock;
     private Date lastLoginDate;
     private Date cretateDate;
     private Date updateDate;
@@ -43,11 +43,11 @@ public class User extends IdEntity{
         this.headImgUrl = headImgUrl;
     }
 
-    public String getIsLock() {
+    public Integer getIsLock() {
         return isLock;
     }
 
-    public void setIsLock(String isLock) {
+    public void setIsLock(Integer isLock) {
         this.isLock = isLock;
     }
 
