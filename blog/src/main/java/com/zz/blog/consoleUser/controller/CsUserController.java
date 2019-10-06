@@ -11,17 +11,18 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
 
+import javax.servlet.http.HttpServletRequest;
+
 @RequestMapping("/console/user")
 @Controller
-public class CsUserController extends BaseController{
+public class CsUserController extends BaseController {
     @Autowired
     private UserService userService;
 
-    @RequestMapping("/register")
+    @RequestMapping("/update")
     @ResponseBody
-    public ResponseEntity<?> registerUser(@RequestBody UserVo vo){
-         userService.registerUser(vo);
-         return new ResponseEntity<UserVo>(vo, HttpStatus.OK);
+    public ResponseEntity<?> registerUser(@RequestBody UserVo vo) {
+        //userService
+        return new ResponseEntity<UserVo>(vo, HttpStatus.OK);
     }
-
 }
